@@ -161,35 +161,6 @@ body {
     animation: hero-text 1s 2s ease-in-out forwards;
 }
 
-@keyframes hero-layer {
-    from {
-        transform: translateX(-100%);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-
-@keyframes hero-title {
-    from {
-        transform: translateY(-100%);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes hero-text {
-    from {
-        transform: translateY(400%);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 .main__benefits {
     display: flex;
     flex-direction: row;
@@ -208,7 +179,26 @@ body {
 }
 
 .main__benefit {
-    padding-left: 32px;
+    padding: 10px 16px 15px 32px;
+    position: relative;
+}
+
+.main__benefit::before {
+    position: absolute;
+    content: "";
+    height: 94%;
+    width: 100%;
+    background-color: rgba(81, 146, 122, 0.6);
+    left: 0;
+    top: 2px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 0;
+}
+
+.main__benefit:hover::before {
+    opacity: 1;
+    transition: opacity 0.2s ease;
 }
 
 .main__benefits-container::before {
@@ -219,18 +209,23 @@ body {
     position: absolute;
     left: 0;
     top: 15%;
+    z-index: 3;
 }
 
 .main__benefit-title {
     font-size: 32px;
     margin: 0;
     color: var(--color-text-primary);
+    z-index: 3;
+    position: relative;
 }
 
 .main__benefit-text {
     font-size: 16px;
     color: var(--color-text-primary);
     margin: 16px 0;
+    z-index: 3;
+    position: relative;
 }
 
 .main__benefits-image-container {
@@ -319,3 +314,36 @@ body {
 .footer__policies-item:hover .footer__policies-link {
     text-decoration: underline;
 }
+
+/*<------------------------------------- keyuframes ------------------------------------>*/
+
+/*---------hero----------*/
+@keyframes hero-layer {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes hero-title {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes hero-text {
+    from {
+        transform: translateY(400%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
